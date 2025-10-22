@@ -154,6 +154,24 @@ class EasyOcrOptions(OcrOptions):
     )
 
 
+class CustomApiOcrOptions(OcrOptions):
+    """Options for a custom HTTP OCR engine."""
+
+    kind: ClassVar[Literal["custom_api"]] = "custom_api"
+    lang: List[str] = ["en"]
+
+    url: AnyUrl
+    headers: Dict[str, str] = Field(default_factory=dict)
+    timeout: float = 300.0
+    scale: float = 3.0
+    confidence_threshold: float = 0.0
+    image_format: Literal["PNG", "JPEG"] = "JPEG"
+
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+
+
 class TesseractCliOcrOptions(OcrOptions):
     """Options for the TesseractCli engine."""
 

@@ -83,6 +83,7 @@ changelog = "https://github.com/docling-project/docling/blob/main/CHANGELOG.md"
 
 [project.entry-points.docling]
 "docling_defaults" = "docling.models.plugins.defaults"
+"docling_custom_ocr" = "docling_custom.plugin:register"
 
 [project.scripts]
 docling = "docling.cli.main:app"
